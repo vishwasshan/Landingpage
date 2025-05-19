@@ -1,381 +1,103 @@
 import React from "react";
 
+// Reusable check icon component
+const CheckIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    className="mr-4 fill-green-500"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
+      data-original="#000000"
+    />
+  </svg>
+);
+
+const plans = [
+  {
+    name: "Kitchen",
+    price: "Free",
+    subtitle: "Basic Features",
+    scale: "lg:scale-95",
+    includes: [
+      "Design concepts featuring modern and traditional kitchen layouts",
+      "Selection of cabinets, countertops, and fixtures",
+      "Lighting plans tailored for kitchen functionality",
+      "Optimized storage solutions and appliance placement",
+      "Color schemes and material recommendations",
+    ],
+  },
+  {
+    name: "Room",
+    price: "Free",
+    subtitle: "Standard Features",
+    scale: "lg:scale-95",
+    includes: [
+      "Furniture arrangement for comfort and space efficiency",
+      "Wall treatments including paint, wallpaper, and textures",
+      "Lighting designs to enhance mood and utility",
+      "Flooring options suitable for different room types",
+      "Decor and accessory suggestions for personalization",
+    ],
+  },
+  {
+    name: "Living Area",
+    price: "Free",
+    subtitle: "Advanced Features",
+    scale: "lg:scale-95",
+    includes: [
+      "Seating layouts promoting social interaction and comfort",
+      "Lighting design for ambiance and functionality",
+      "Incorporation of multimedia and entertainment setups",
+      "Use of textiles and rugs for warmth and style",
+      "Decorative elements and artwork placement advice",
+    ],
+  },
+];
+
+
 const Pricing = () => {
   return (
-    <div className="font-[sans-serif] text-[#333] relative bg-gradient-to-l from-transparent to-black">
+    <section className="font-sans text-[#333] relative bg-gradient-to-l from-transparent to-black">
       <div className="max-w-6xl mx-auto py-10 px-4 relative z-20">
-        <div className="text-center">
+        <header className="text-center">
           <h2 className="text-2xl font-bold text-white mb-2">
-            Choose a Subscription
+            Interior Design Section
           </h2>
-          <p className="text-sm text-white">
-            choose a plan tailored to your needs
-          </p>
-        </div>
+        </header>
+
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 mt-12 max-sm:max-w-sm max-sm:mx-auto">
-          <div className="bg-white rounded shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] p-6 lg:scale-95">
-            <div className="flex items-start">
-              <h3 className="text-lg font-extrabold border-b-2 border-orange-500 pb-1">
-                Starter
-              </h3>
-              <div className="ml-auto">
-                <h3 className="text-lg font-extrabold">Free</h3>
-                <p className="text-xs">Free Sign Up</p>
+          {plans.map(({ name, price, subtitle, scale, includes }) => (
+            <article
+              key={name}
+              className={`bg-white rounded shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] p-6 ${scale}`}
+            >
+              <div className="flex items-start">
+                <h3 className="text-lg font-extrabold border-b-2 border-orange-500 pb-1">
+                  {name}
+                </h3>
+    
               </div>
-            </div>
-            <div className="mt-10">
-              <h4 className="text-base font-bold mb-4">Plan Includes</h4>
-              <ul className="space-y-4">
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  50 Image generations
-                </li>
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  500 Credits
-                </li>
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  Monthly 100 Credits Free
-                </li>
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  Customer Support
-                </li>
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  Dedicated Server
-                </li>
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  Priority Generations
-                </li>
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  50GB Cloud Storage
-                </li>
-              </ul>
-              <button
-                type="button"
-                className="w-full mt-10 px-2 py-2 text-sm  border border-gray-700 hover:border-orange-500 bg-transparent rounded"
-              >
-                Get Started
-              </button>
-            </div>
-          </div>
-          <div className="bg-white rounded shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] p-6 lg:scale-105">
-            <div className="flex items-start">
-              <h3 className="text-lg font-extrabold border-b-2 border-orange-500 pb-1">
-                Business
-              </h3>
-              <div className="ml-auto">
-                <h3 className="text-lg font-extrabold">$45.00/Mon</h3>
-                <p className="text-xs">7-Day Free Trial</p>
+
+              <div className="mt-10">
+                <h4 className="text-base font-bold mb-4">Includes</h4>
+                <ul className="space-y-4">
+                  {includes.map((item) => (
+                    <li key={item} className="flex items-center text-sm">
+                      <CheckIcon />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
               </div>
-            </div>
-            <div className="mt-10">
-              <h4 className="text-base font-bold mb-4">Plan Includes</h4>
-              <ul className="space-y-4">
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  600 Image generations
-                </li>
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  4000 Credits
-                </li>
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  Monthly 2000 Credits Free
-                </li>
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  Customer Support
-                </li>
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  Dedicated Server
-                </li>
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  Priority Generations
-                </li>
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  1000GB Cloud Storage
-                </li>
-              </ul>
-              <button
-                type="button"
-                className="w-full mt-10 px-2 py-2 text-sm  border border-gray-700 hover:border-orange-500 bg-transparent rounded"
-              >
-                Get Started
-              </button>
-            </div>
-          </div>
-          <div className="bg-white rounded shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] p-6 lg:scale-95">
-            <div className="flex items-start">
-              <h3 className="text-lg font-extrabold border-b-2 border-orange-500 pb-1">
-                Pro
-              </h3>
-              <div className="ml-auto">
-                <h3 className="text-lg font-extrabold">$20.00/Mon</h3>
-                <p className="text-xs">7-Day Free Trial</p>
-              </div>
-            </div>
-            <div className="mt-10">
-              <h4 className="text-base font-bold mb-4">Plan Includes</h4>
-              <ul className="space-y-4">
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  300 Image generations
-                </li>
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  2000 Credits
-                </li>
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  Monthly 1000 Credits Free
-                </li>
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  Customer Support
-                </li>
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  Dedicated Server
-                </li>
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  Priority Generations
-                </li>
-                <li className="flex items-center text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    className="mr-4 fill-green-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000"
-                    />
-                  </svg>
-                  500GB Cloud Storage
-                </li>
-              </ul>
-              <button
-                type="button"
-                className="w-full mt-10 px-2 py-2 text-sm  border border-gray-700 hover:border-orange-500 bg-transparent rounded"
-              >
-                Get Started
-              </button>
-            </div>
-          </div>
+            </article>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
